@@ -2,27 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Neon Flower with Roots</title>
+  <title>Neon Daisy Flower</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <svg id="flower" viewBox="0 0 200 300" width="300" height="450">
-    <g id="roots">
-      <path id="root-path" d="M100,100 C98,180 102,240 100,280" stroke="#00f0ff" stroke-width="2" fill="none" />
-    </g>
-    <g id="petals"></g>
-    <circle cx="100" cy="100" r="10" fill="#00f0ff" filter="url(#glow)" />
+  <svg viewBox="0 0 200 200" id="flower" width="300" height="300">
     <defs>
-      <filter id="glow">
-        <feGaussianBlur stdDeviation="4" result="blur" />
-        <feMerge>
-          <feMergeNode in="blur" />
-          <feMergeNode in="blur" />
-          <feMergeNode in="SourceGraphic" />
-        </feMerge>
+      <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+        <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#00f0ff"/>
       </filter>
     </defs>
+    <g id="petals"></g>
+    <circle cx="100" cy="100" r="15" fill="#00f0ff" filter="url(#glow)" />
   </svg>
+
   <script src="script.js"></script>
 </body>
 </html>
