@@ -1,26 +1,22 @@
- // Create 8 petals rotated around the center
 const petalsGroup = document.getElementById('petals');
 
-for (let i = 0; i < 8; i++) {
+// Petal path: pointed, slightly curved like the flower in the image
+const petalPath = "M100,100 C98,40 102,40 100,100";
+
+for(let i = 0; i < 16; i++) {
+  const angle = i * (360 / 16);
   const petal = document.createElementNS("http://www.w3.org/2000/svg", "path");
-  const angle = i * 45;
-  const path = "M100,100 C90,70 110,70 100,100";
-  petal.setAttribute("d", path);
+  petal.setAttribute("d", petalPath);
   petal.setAttribute("fill", "#00f0ff");
-  petal.setAttribute("transform", `rotate(${angle}, 100, 100)`);
   petal.setAttribute("filter", "url(#glow)");
+  petal.setAttribute("transform", `rotate(${angle}, 100, 100)`);
   petalsGroup.appendChild(petal);
 }
 
-// Restart full animation
+// Loop the animation every 7 seconds
 setInterval(() => {
-  const flower = document.getElementById('flower');
-  const root = document.getElementById('root-path');
-  
-  flower.style.animation = 'none';
-  root.style.animation = 'none';
-
-  flower.offsetHeight; // force reflow
-  flower.style.animation = 'bloomAndFade 10s ease-out forwards';
-  root.style.animation = 'growRoot 3s ease-out forwards';
-}, 12000); // total duration
+  const svg = document.getElementById('flower');
+  svg.style.animation = 'none';
+  svg.offsetHeight; // trigger reflow
+  svg.style.animation = 'bloomFade 6s ease forwards';
+}, 7000);
