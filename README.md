@@ -6,7 +6,7 @@ This is a simple HTML/CSS/JavaScript project that displays a glowing neon blue f
 
 ![Neon Blue Flower Animation](https://github.com/yourusername/your-repo-name/raw/main/demo.gif)
 
-> You can also [view the live demo here](codingisfun1010.github.io/Flower/
+> You can also [view the live demo here](https://codingisfun1010.github.io/Flower/
 Resources
  Rea)
 
