@@ -1,4 +1,4 @@
-// Automatically restarts the animation every 6 seconds
+// Restart animation every 6 seconds
 setInterval(() => {
   const flower = document.getElementById('flower');
   flower.style.animation = 'none';
