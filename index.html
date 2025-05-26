@@ -2,27 +2,28 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Neon Blue Flower</title>
+  <title>Neon Blue SVG Flower</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="flower" id="flower">
-    <div class="center"></div>
-    <!-- Generate 12 petals -->
-    <div class="petal" style="--i: 0;"></div>
-    <div class="petal" style="--i: 1;"></div>
-    <div class="petal" style="--i: 2;"></div>
-    <div class="petal" style="--i: 3;"></div>
-    <div class="petal" style="--i: 4;"></div>
-    <div class="petal" style="--i: 5;"></div>
-    <div class="petal" style="--i: 6;"></div>
-    <div class="petal" style="--i: 7;"></div>
-    <div class="petal" style="--i: 8;"></div>
-    <div class="petal" style="--i: 9;"></div>
-    <div class="petal" style="--i: 10;"></div>
-    <div class="petal" style="--i: 11;"></div>
-  </div>
+  <svg id="flower" viewBox="0 0 200 200" width="300" height="300">
+    <!-- 8 petal paths rotated -->
+    <g id="petals">
+      <!-- One petal shape reused with rotation -->
+      <!-- We'll clone it in JS -->
+    </g>
+    <circle cx="100" cy="100" r="10" fill="#00f0ff" filter="url(#glow)" />
+    <defs>
+      <filter id="glow">
+        <feGaussianBlur stdDeviation="4" result="blur" />
+        <feMerge>
+          <feMergeNode in="blur" />
+          <feMergeNode in="blur" />
+          <feMergeNode in="SourceGraphic" />
+        </feMerge>
+      </filter>
+    </defs>
+  </svg>
 
   <script src="script.js"></script>
 </body>
