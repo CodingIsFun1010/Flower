@@ -1,7 +1,7 @@
 body {
   margin: 0;
   height: 100vh;
-  background-color: black;
+  background: black;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -9,52 +9,57 @@ body {
 
 .flower {
   position: relative;
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   animation: bloomAndFade 5s ease-out forwards;
   opacity: 0;
   transform: scale(0);
 }
 
-.petal {
-  position: absolute;
-  width: 40px;
-  height: 80px;
-  background: radial-gradient(circle at center, #00f0ff, #001f3f);
-  border-radius: 50%;
-  box-shadow: 0 0 15px #00f0ff, 0 0 30px #00f0ff;
-  opacity: 0.8;
-}
-
-/* Position and rotate petals */
-.petal1 { top: 0; left: 30px; transform: rotate(0deg); }
-.petal2 { top: 30px; left: 60px; transform: rotate(90deg); }
-.petal3 { top: 60px; left: 30px; transform: rotate(180deg); }
-.petal4 { top: 30px; left: 0; transform: rotate(270deg); }
-
+/* Glowing center */
 .center {
   position: absolute;
-  top: 35px;
-  left: 35px;
+  top: 50%;
+  left: 50%;
   width: 30px;
   height: 30px;
   background: #00f0ff;
   border-radius: 50%;
-  box-shadow: 0 0 15px #00f0ff, 0 0 25px #00f0ff;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 10px #00f0ff, 0 0 30px #00f0ff;
 }
 
+/* Petals in radial layout */
+.petal {
+  --rotation: calc(var(--i) * 45deg);
+  position: absolute;
+  width: 30px;
+  height: 80px;
+  background: radial-gradient(circle at center, #00f0ff, #001f3f);
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  top: 50%;
+  left: 50%;
+  transform:
+    rotate(var(--rotation))
+    translateY(-60px);
+  transform-origin: center center;
+  opacity: 0.8;
+  box-shadow: 0 0 10px #00f0ff, 0 0 20px #00f0ff;
+}
+
+/* Animate whole flower */
 @keyframes bloomAndFade {
   0% {
     transform: scale(0);
     opacity: 0;
   }
   30% {
-    transform: scale(1.2);
+    transform: scale(1.1);
     opacity: 1;
   }
   80% {
-    transform: scale(1.6);
-    opacity: 0.7;
+    transform: scale(1.5);
+    opacity: 0.8;
   }
   100% {
     transform: scale(2);
