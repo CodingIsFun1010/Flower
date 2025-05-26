@@ -2,16 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Neon Blue SVG Flower</title>
+  <title>Neon Flower with Roots</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <svg id="flower" viewBox="0 0 200 200" width="300" height="300">
-    <!-- 8 petal paths rotated -->
-    <g id="petals">
-      <!-- One petal shape reused with rotation -->
-      <!-- We'll clone it in JS -->
+  <svg id="flower" viewBox="0 0 200 300" width="300" height="450">
+    <g id="roots">
+      <path id="root-path" d="M100,100 C98,180 102,240 100,280" stroke="#00f0ff" stroke-width="2" fill="none" />
     </g>
+    <g id="petals"></g>
     <circle cx="100" cy="100" r="10" fill="#00f0ff" filter="url(#glow)" />
     <defs>
       <filter id="glow">
@@ -24,7 +23,7 @@
       </filter>
     </defs>
   </svg>
-
   <script src="script.js"></script>
 </body>
 </html>
+
