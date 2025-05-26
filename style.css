@@ -1,0 +1,38 @@
+body {
+  margin: 0;
+  height: 100vh;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flower {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #00f0ff 0%, #001f3f 70%);
+  box-shadow: 0 0 15px #00f0ff, 0 0 30px #00f0ff;
+  opacity: 0;
+  transform: scale(0);
+  animation: bloomAndFade 5s ease-out forwards;
+}
+
+@keyframes bloomAndFade {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  30% {
+    transform: scale(1.5);
+    opacity: 1;
+  }
+  80% {
+    transform: scale(2);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
